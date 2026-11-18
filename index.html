@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aruba Hotel + Villas · Ojo de Agua, Tecámac</title>
+<meta name="description" content="Aruba Hotel + Villas en Ojo de Agua, Tecámac. Habitaciones y villas privadas para descansar con comodidad y discreción.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f1f24;
+    --ink-soft:#3c4b50;
+    --sea:#0e5e63;
+    --sea-deep:#0a3e42;
+    --sand:#f5efe6;
+    --sand-2:#ebe2d4;
+    --gold:#c79a5b;
+    --white:#ffffff;
+    --radius:18px;
+    --shadow:0 20px 50px -20px rgba(10,40,45,.35);
+    --ease:cubic-bezier(.22,.8,.24,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--sand);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+  .container{width:min(1200px,92%);margin-inline:auto}
+  .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1rem;display:inline-flex;align-items:center;gap:.6rem}
+  .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+  section{padding:7rem 0}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 1.7rem;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s,color .25s}
+  .btn:active{transform:scale(.97)}
+  .btn-gold{background:var(--gold);color:var(--ink)}
+  .btn-gold:hover{background:#d6ab6d}
+  .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .btn-dark{background:var(--sea-deep);color:#fff}
+  .btn-dark:hover{background:var(--sea)}
+
+  /* NAV */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .35s,box-shadow .35s,padding .35s;padding:1.4rem 0}
+  .nav.scrolled{background:rgba(245,239,230,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(0,0,0,.06);padding:.9rem 0}
+  .nav .container{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Fraunces',serif;font-size:1.45rem;color:#fff;display:flex;align-items:baseline;gap:.35rem;transition:color .35s}
+  .logo span{font-family:'Manrope';font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .nav.scrolled .logo{color:var(--ink)}
+  .nav-links{display:flex;gap:2.2rem;list-style:none}
+  .nav-links a{color:rgba(255,255,255,.88);font-size:.92rem;font-weight:500;transition:color .2s}
+  .nav.scrolled .nav-links a{color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--gold)!important}
+  .nav .btn{padding:.7rem 1.3rem}
+  .burger{display:none;background:none;border:0;cursor:pointer;width:32px;height:24px;position:relative}
+  .burger span{position:absolute;left:0;width:100%;height:2px;background:#fff;transition:.3s}
+  .nav.scrolled .burger span{background:var(--ink)}
+  .burger span:nth-child(1){top:2px}.burger span:nth-child(2){top:11px}.burger span:nth-child(3){top:20px}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 0 9rem;color:#fff;overflow:hidden;
+    background:linear-gradient(135deg,#0a3e42,#14707a)}
+  .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=80') center/cover;transform:scale(1.08);animation:heroZoom 14s var(--ease) forwards}
+  @keyframes heroZoom{to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,33,.45) 0%,rgba(8,30,33,.2) 40%,rgba(8,30,33,.85) 100%)}
+  .hero .container{position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.8rem,7vw,6rem);font-weight:300;max-width:13ch}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p{max-width:46ch;margin:1.5rem 0 2.2rem;font-size:1.1rem;color:rgba(255,255,255,.85)}
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+
+  /* BOOKING BAR */
+  .booking{position:relative;z-index:5;margin-top:-4.5rem}
+  .booking form{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr) auto;gap:0;padding:.6rem}
+  .field{padding:.9rem 1.3rem;border-right:1px solid var(--sand-2);display:flex;flex-direction:column}
+  .field:nth-child(4){border-right:0}
+  .field label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:.25rem}
+  .field input,.field select{border:0;outline:0;font:inherit;font-weight:600;color:var(--ink);background:transparent;width:100%}
+  .booking .btn{border-radius:12px;margin:.2rem}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:5rem;align-items:center}
+  .about h2{font-size:clamp(2.2rem,4vw,3.4rem);margin-bottom:1.5rem}
+  .about p{color:var(--ink-soft);margin-bottom:1rem;max-width:52ch}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--sand-2)}
+  .stat strong{font-family:'Fraunces';font-size:2.4rem;font-weight:500;color:var(--sea);display:block;line-height:1}
+  .stat span{font-size:.85rem;color:var(--ink-soft)}
+  .about-media{position:relative;height:560px}
+  .about-media .m1,.about-media .m2{position:absolute;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--sea)}
+  .about-media img{width:100%;height:100%;object-fit:cover}
+  .m1{inset:0 18% 14% 0}
+  .m2{width:48%;height:46%;right:0;bottom:0;border:8px solid var(--sand)}
+  .badge{position:absolute;top:2rem;right:4%;background:var(--sea-deep);color:#fff;border-radius:50%;width:120px;height:120px;display:grid;place-items:center;text-align:center;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;box-shadow:var(--shadow);z-index:2}
+  .badge b{font-family:'Fraunces';font-size:1.9rem;letter-spacing:0;display:block;color:var(--gold);text-transform:none}
+
+  /* ROOMS */
+  .rooms{background:var(--white)}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap}
+  .section-head h2{font-size:clamp(2.2rem,4vw,3.4rem);max-width:16ch}
+  .section-head p{max-width:40ch;color:var(--ink-soft)}
+  .room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+  .room{border-radius:var(--radius);overflow:hidden;background:var(--sand);transition:transform .4s var(--ease),box-shadow .4s}
+  .room:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .room-img{height:280px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--sea),var(--sea-deep))}
+  .room-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .room:hover .room-img img{transform:scale(1.06)}
+  .tag{position:absolute;top:1rem;left:1rem;background:rgba(255,255,255,.92);padding:.35rem .8rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .room-body{padding:1.6rem}
+  .room-body h3{font-size:1.6rem;margin-bottom:.5rem}
+  .room-body p{color:var(--ink-soft);font-size:.93rem;margin-bottom:1.2rem}
+  .room-feats{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+  .room-feats span{font-size:.78rem;background:var(--white);padding:.3rem .7rem;border-radius:999px;color:var(--ink-soft)}
+  .room-foot{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;border-top:1px solid var(--sand-2)}
+  .price small{display:block;font-size:.72rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em}
+  .price b{font-family:'Fraunces';font-size:1.6rem;font-weight:500;color:var(--sea)}
+  .link-arrow{font-weight:600;font-size:.9rem;color:var(--sea-deep);display:inline-flex;gap:.4rem;align-items:center}
+  .link-arrow:hover{color:var(--gold)}
+
+  /* AMENITIES */
+  .amenities{background:var(--sea-deep);color:#fff;position:relative;overflow:hidden}
+  .amenities .section-head p{color:rgba(255,255,255,.7)}
+  .amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border-radius:var(--radius);overflow:hidden}
+  .amen{background:var(--sea-deep);padding:2.4rem 1.8rem;transition:background .3s}
+  .amen:hover{background:#0d4b50}
+  .amen svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.5;margin-bottom:1.3rem}
+  .amen h3{font-size:1.25rem;margin-bottom:.4rem}
+  .amen p{font-size:.88rem;color:rgba(255,255,255,.65)}
+
+  /* GALLERY */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:1rem}
+  .g{border-radius:14px;overflow:hidden;background:linear-gradient(135deg,var(--sea),var(--gold))}
+  .g img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .g:hover img{transform:scale(1.07)}
+  .g.tall{grid-row:span 2}.g.wide{grid-column:span 2}
+
+  /* REVIEWS */
+  .reviews{background:var(--white)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+  .rev{background:var(--sand);border-radius:var(--radius);padding:2.2rem}
+  .stars{color:var(--gold);letter-spacing:.2em;margin-bottom:1rem}
+  .rev blockquote{font-family:'Fraunces';font-size:1.18rem;font-weight:300;line-height:1.5;margin-bottom:1.5rem}
+  .rev cite{font-style:normal;font-weight:600;font-size:.9rem}
+  .rev cite small{display:block;color:var(--ink-soft);font-weight:400}
+
+  /* LOCATION */
+  .loc-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:center}
+  .loc h2{font-size:clamp(2.2rem,4vw,3.2rem);margin-bottom:1.5rem}
+  .loc-list{list-style:none;margin:2rem 0}
+  .loc-list li{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--sand-2)}
+  .loc-list svg{width:22px;height:22px;stroke:var(--sea);fill:none;stroke-width:1.7;flex-shrink:0;margin-top:3px}
+  .loc-list b{display:block;font-size:.95rem}
+  .loc-list span{color:var(--ink-soft);font-size:.9rem}
+  .map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:480px;background:var(--sand-2)}
+  .map iframe{width:100%;height:100%;border:0;filter:saturate(.85)}
+
+  /* CTA */
+  .cta{padding:0 0 7rem}
+  .cta-box{border-radius:28px;overflow:hidden;position:relative;padding:5rem 4rem;color:#fff;background:linear-gradient(120deg,rgba(10,62,66,.95),rgba(10,62,66,.6)),url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1800&q=80') center/cover,var(--sea-deep);display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+  .cta-box h2{font-size:clamp(2rem,4vw,3.2rem);max-width:18ch}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:rgba(255,255,255,.65);padding:4.5rem 0 2rem;font-size:.9rem}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+  footer .logo{color:#fff;margin-bottom:1rem}
+  footer h4{color:#fff;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.2rem}
+  footer ul{list-style:none}
+  footer li{margin-bottom:.6rem}
+  footer a:hover{color:var(--gold)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.8rem}
+
+  /* WHATSAPP */
+  .wa{position:fixed;right:1.5rem;bottom:1.5rem;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.4);transition:transform .25s var(--ease)}
+  .wa:hover{transform:scale(1.08)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+
+  /* TOAST */
+  .toast{position:fixed;left:50%;bottom:2rem;transform:translate(-50%,150%);background:var(--ink);color:#fff;padding:1rem 1.6rem;border-radius:12px;z-index:70;transition:transform .45s var(--ease);font-size:.92rem;box-shadow:var(--shadow)}
+  .toast.show{transform:translate(-50%,0)}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .hero-bg{animation:none;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:1000px){
+    .about-grid,.loc-grid{grid-template-columns:1fr;gap:3rem}
+    .room-grid,.rev-grid{grid-template-columns:1fr 1fr}
+    .amen-grid{grid-template-columns:1fr 1fr}
+    .booking form{grid-template-columns:1fr 1fr}
+    .field{border-right:0;border-bottom:1px solid var(--sand-2)}
+    .booking .btn{grid-column:span 2;justify-content:center}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:760px){
+    section{padding:5rem 0}
+    .nav-links,.nav .btn-gold{display:none}
+    .burger{display:block}
+    .nav.open .nav-links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--sand);padding:1.5rem 4%;gap:1.2rem;box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+    .nav.open .nav-links a{color:var(--ink)}
+    .nav.open{background:var(--sand)}
+    .nav.open .logo{color:var(--ink)}
+    .nav.open .burger span{background:var(--ink)}
+    .room-grid,.rev-grid,.amen-grid{grid-template-columns:1fr}
+    .about-media{height:420px}
+    .stats{grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    .stat strong{font-size:1.9rem}
+    .cta-box{padding:3rem 2rem}
+    .foot-grid{grid-template-columns:1fr}
+    .gallery-grid{grid-auto-rows:160px}
+    .g.wide{grid-column:span 2}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#inicio" class="logo">Aruba <span>Hotel + Villas</span></a>
+    <ul class="nav-links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#habitaciones">Habitaciones</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+    <a href="#reservar" class="btn btn-gold">Reservar</a>
+    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="eyebrow">Ojo de Agua · Tecámac</div>
+    <h1>Tu refugio <em>privado</em> a minutos de todo</h1>
+    <p>Habitaciones y villas diseñadas para descansar con total comodidad, privacidad y un servicio atento las 24 horas.</p>
+    <div class="hero-ctas">
+      <a href="#reservar" class="btn btn-gold">Consultar disponibilidad →</a>
+      <a href="#habitaciones" class="btn btn-ghost">Ver habitaciones</a>
+    </div>
+  </div>
+</header>
+
+<!-- BOOKING -->
+<div class="booking" id="reservar">
+  <div class="container">
+    <form id="bookingForm">
+      <div class="field"><label for="in">Llegada</label><input type="date" id="in" required></div>
+      <div class="field"><label for="out">Salida</label><input type="date" id="out" required></div>
+      <div class="field"><label for="type">Tipo</label>
+        <select id="type"><option>Habitación Estándar</option><option>Suite Jacuzzi</option><option>Villa Privada</option></select></div>
+      <div class="field"><label for="guests">Huéspedes</label>
+        <select id="guests"><option>1 adulto</option><option selected>2 adultos</option><option>3 adultos</option><option>4 adultos</option></select></div>
+      <button type="submit" class="btn btn-dark">Buscar</button>
+    </form>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="container about-grid">
+    <div class="reveal">
+      <div class="eyebrow">Bienvenido a Aruba</div>
+      <h2>Un oasis de calma en el corazón de Tecámac</h2>
+      <p>En Aruba Hotel + Villas combinamos la calidez de un hotel boutique con la privacidad de una villa propia. Cada espacio está pensado para que te desconectes desde el momento en que llegas.</p>
+      <p>Ya sea una escapada en pareja, una noche de paso o una estancia de trabajo cerca del AIFA, aquí encuentras confort, limpieza impecable y atención discreta.</p>
+      <div class="stats">
+        <div class="stat"><strong>24/7</strong><span>Recepción</span></div>
+        <div class="stat"><strong>4.5★</strong><span>Calificación*</span></div>
+        <div class="stat"><strong>100%</strong><span>Privacidad</span></div>
+      </div>
+    </div>
+    <div class="about-media reveal">
+      <div class="badge"><div><b>Villas</b>con cochera privada</div></div>
+      <div class="m1"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" alt="Habitación elegante del hotel" loading="lazy"></div>
+      <div class="m2"><img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80" alt="Área de descanso" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms" id="habitaciones">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Habitaciones & Villas</div><h2>Espacios para cada ocasión</h2></div>
+      <p>Elige entre habitaciones funcionales, suites con jacuzzi o villas privadas con acceso directo desde tu cochera.</p>
+    </div>
+    <div class="room-grid">
+      <article class="room reveal">
+        <div class="room-img"><span class="tag">Esencial</span><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" alt="Habitación Estándar" loading="lazy"></div>
+        <div class="room-body">
+          <h3>Habitación Estándar</h3>
+          <p>Cama king size, ambiente tranquilo y todo lo necesario para un descanso reparador.</p>
+          <div class="room-feats"><span>Cama King</span><span>Smart TV</span><span>Wi-Fi</span><span>A/C</span></div>
+          <div class="room-foot"><div class="price"><small>Desde</small><b>$650</b></div><a href="#reservar" class="link-arrow">Reservar →</a></div>
+        </div>
+      </article>
+      <article class="room reveal">
+        <div class="room-img"><span class="tag">Más popular</span><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80" alt="Suite Jacuzzi" loading="lazy"></div>
+        <div class="room-body">
+          <h3>Suite Jacuzzi</h3>
+          <p>Amplia suite con jacuzzi privado, iluminación ambiental y amenidades premium.</p>
+          <div class="room-feats"><span>Jacuzzi</span><span>Cama King</span><span>Sonido</span><span>Amenidades</span></div>
+          <div class="room-foot"><div class="price"><small>Desde</small><b>$1,150</b></div><a href="#reservar" class="link-arrow">Reservar →</a></div>
+        </div>
+      </article>
+      <article class="room reveal">
+        <div class="room-img"><span class="tag">Exclusiva</span><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80" alt="Villa Privada" loading="lazy"></div>
+        <div class="room-body">
+          <h3>Villa Privada</h3>
+          <p>Cochera techada con acceso directo, sala de estar y la máxima discreción.</p>
+          <div class="room-feats"><span>Cochera</span><span>Jacuzzi</span><span>Sala</span><span>Room service</span></div>
+          <div class="room-foot"><div class="price"><small>Desde</small><b>$1,600</b></div><a href="#reservar" class="link-arrow">Reservar →</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Servicios</div><h2>Todo pensado para ti</h2></div>
+      <p>Detalles que hacen la diferencia en cada estancia.</p>
+    </div>
+    <div class="amen-grid reveal">
+      <div class="amen"><svg viewBox="0 0 24 24"><path d="M3 13h18v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3z"/><path d="M6 13V6a2 2 0 0 1 4 0"/><path d="M7 20l-1 2M17 20l1 2"/></svg><h3>Jacuzzi</h3><p>Hidromasaje privado en suites y villas.</p></div>
+      <div class="amen"><svg viewBox="0 0 24 24"><path d="M5 17h14M6 17V9l2-4h8l2 4v8"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg><h3>Cochera privada</h3><p>Acceso directo y discreto a tu villa.</p></div>
+      <div class="amen"><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0"/><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg><h3>Wi-Fi gratis</h3><p>Conexión de alta velocidad en todo el hotel.</p></div>
+      <div class="amen"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Recepción 24 h</h3><p>Atención en todo momento, todos los días.</p></div>
+      <div class="amen"><svg viewBox="0 0 24 24"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M12 3v3M8 4v2M16 4v2"/></svg><h3>Room service</h3><p>Alimentos y bebidas directo a tu habitación.</p></div>
+      <div class="amen"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><h3>Smart TV</h3><p>Entretenimiento con plataformas de streaming.</p></div>
+      <div class="amen"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg><h3>Amenidades</h3><p>Productos de baño y blancos de alta calidad.</p></div>
+      <div class="amen"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><h3>Seguridad</h3><p>Vigilancia y accesos controlados.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Galería</div><h2>Descubre Aruba</h2></div>
+      <p>Un vistazo a nuestros espacios.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g tall"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Suite" loading="lazy"></div>
+      <div class="g wide"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="Exterior" loading="lazy"></div>
+      <div class="g"><img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80" alt="Detalle" loading="lazy"></div>
+      <div class="g"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80" alt="Habitación" loading="lazy"></div>
+      <div class="g wide"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80" alt="Área común" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Opiniones</div><h2>Lo que dicen nuestros huéspedes</h2></div>
+      <p>Reseñas de ejemplo para la demo.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><div class="stars">★★★★★</div><blockquote>“Muy limpio, cómodo y discreto. La villa con cochera es un acierto.”</blockquote><cite>Mariana G.<small>Escapada en pareja</small></cite></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><blockquote>“Excelente ubicación para quienes vuelan desde el AIFA. Llegué tarde y me atendieron perfecto.”</blockquote><cite>Ricardo L.<small>Viaje de trabajo</small></cite></div>
+      <div class="rev reveal"><div class="stars">★★★★☆</div><blockquote>“El jacuzzi y las amenidades superaron lo que esperaba por el precio.”</blockquote><cite>Daniela P.<small>Fin de semana</small></cite></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="loc" id="ubicacion">
+  <div class="container loc-grid">
+    <div class="reveal">
+      <div class="eyebrow">Ubicación</div>
+      <h2>Fácil de llegar, difícil de dejar</h2>
+      <ul class="loc-list">
+        <li><svg viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Dirección</b><span>Blvd. Ojo de Agua 39, San Francisco Cuautliquixca, 55770 Ojo de Agua, Tecámac, Edo. Méx.</span></div></li>
+        <li><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8L7.6 9.9a16 16 0 0 0 6.5 6.5l1.4-1.4a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 1.7 2z"/></svg><div><b>Teléfono</b><span>(55) 0000 0000</span></div></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Horario</b><span>Abierto las 24 horas</span></div></li>
+      </ul>
+      <a class="btn btn-dark" href="https://maps.app.goo.gl/e8idmC6sgiSSog7p6" target="_blank" rel="noopener">Cómo llegar →</a>
+    </div>
+    <div class="map reveal">
+      <iframe src="https://maps.google.com/maps?q=19.6665087,-99.015394&z=16&output=embed" loading="lazy" title="Mapa de Aruba Hotel + Villas" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+      <h2>Tu próxima noche de descanso empieza aquí</h2>
+      <a href="#reservar" class="btn btn-gold">Reservar ahora →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div><div class="logo">Aruba <span>Hotel + Villas</span></div><p>Comodidad, privacidad y atención 24 horas en Ojo de Agua, Tecámac.</p></div>
+      <div><h4>Explora</h4><ul><li><a href="#nosotros">Nosotros</a></li><li><a href="#habitaciones">Habitaciones</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#galeria">Galería</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li>(55) 0000 0000</li><li>reservas@arubahotel.mx</li><li>Recepción 24 h</li></ul></div>
+      <div><h4>Síguenos</h4><ul><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Aruba Hotel + Villas. Todos los derechos reservados.</span><span>*Datos, precios y reseñas de ejemplo para demostración.</span></div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a class="wa" href="https://wa.me/525500000000?text=Hola,%20quiero%20información%20sobre%20disponibilidad" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.4z"/></svg>
+</a>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // Nav al hacer scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Menú móvil
+  document.getElementById('burger').addEventListener('click', () => nav.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // Fechas por defecto
+  const fmt = d => d.toISOString().split('T')[0];
+  const today = new Date(), tomorrow = new Date(Date.now() + 864e5);
+  const inEl = document.getElementById('in'), outEl = document.getElementById('out');
+  inEl.value = fmt(today); inEl.min = fmt(today);
+  outEl.value = fmt(tomorrow); outEl.min = fmt(tomorrow);
+  inEl.addEventListener('change', () => {
+    const next = new Date(new Date(inEl.value).getTime() + 864e5);
+    outEl.min = fmt(next);
+    if (outEl.value <= inEl.value) outEl.value = fmt(next);
+  });
+
+  // Formulario de reserva (demo)
+  const toast = document.getElementById('toast');
+  document.getElementById('bookingForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const type = document.getElementById('type').value;
+    toast.textContent = `¡Hay disponibilidad en ${type}! Te contactaremos para confirmar.`;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3800);
+  });
+
+  // Animación de aparición
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
